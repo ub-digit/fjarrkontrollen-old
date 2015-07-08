@@ -1,6 +1,10 @@
 <div class="container">
   {{#if error}}
-    {{error}}
+      <div class="alert alert-danger" role="alert">
+        <i class="fa fa-exclamation-triangle"></i>
+        <span class="sr-only">Fel:</span>
+        Fel användarnamn eller lösenord
+      </div>
   {{/if}}
   <div class="panel panel-default col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4">
     <div class="panel-body">
@@ -14,7 +18,7 @@
       <label for="password" class="sr-only">Lösenord</label>
       {{input id="input-password" value=password classBinding=":form-control" placeholder='Lösenord' type='password'}}
     </div>
-    <button class="btn btn-primary" type="submit">Login</button>
+    <button class="btn btn-primary" type="submit">Logga in</button>
   </form>
   </div>
   </div>

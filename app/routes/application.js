@@ -74,6 +74,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 				dataLayer.push({'event':'userLoggedIn'});
 			}
 	    	return this._super();	
+
 	    },
 		sessionAuthenticationFailed: function(error) {
 		    this.controllerFor('login').set('error', error);
