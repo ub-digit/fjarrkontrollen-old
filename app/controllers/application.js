@@ -36,14 +36,14 @@ export default Ember.Controller.extend({
 	getStatusObject: function(id) {
 		return this.get("statuses").findBy('idInt', parseInt(id));	
 	},
-
+/*
 	getOrderTypeObject: function(id) {
 		return this.get("ordertypes").findBy('idInt', parseInt(id));
 	},
 	getSourceObject: function(id) {
 		return this.get("delivery_sources").findBy('idInt', parseInt(id));
 	},
-
+*/
 	actions: {
 		resetModal: function() {
 			this.set("orderNumber", "");
