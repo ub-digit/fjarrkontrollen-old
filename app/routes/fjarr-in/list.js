@@ -40,5 +40,8 @@ export default Ember.Route.extend({
 		if (!controller.get("currentLocationSource")) {
 			controller.set("currentLocationSource", null);
 		}
+		if (typeof controller.get("currentOrderType") === 'undefined') {
+			controller.set("currentOrderType", 0);
+		}
 	}
 });
