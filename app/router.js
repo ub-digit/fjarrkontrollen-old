@@ -6,6 +6,12 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('login');
+  this.resource('fjarr-in', function() {
+  	this.route('list');
+    this.route('post',  {path: ":id"});	
+    this.route('postscanned', {path: "postscanned/:id"});
+  });
 });
 
 export default Router;

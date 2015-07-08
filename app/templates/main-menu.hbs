@@ -1,0 +1,28 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      {{#link-to 'index' class="navbar-brand"}}
+      Fjärrkontrollen
+      {{/link-to}}
+    </div>
+    <ul class="nav navbar-nav">
+      {{#if session.isAuthenticated}}
+      <li>
+        {{#link-to 'fjarr-in'}}Fjärr in
+        {{/link-to}}
+      </li>      
+      <li>
+        <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-barcode"></i> Scanna Streckkod</a>
+      </li>
+      {{/if}}
+    </ul>
+
+    <div class="user-auth pull-right">
+      {{#if session.isAuthenticated}}
+        <p class="pull-right">{{session.content.secure.name}} (<small><a href="javascript:void(0)" {{action 'invalidateSession'}}>Logga ut</a></small>)</p>
+      {{else}}
+        <p class="pull-right">{{link-to "Logga in" 'login'}}</p>
+      {{/if}}
+    </div>
+  </div>
+</nav>

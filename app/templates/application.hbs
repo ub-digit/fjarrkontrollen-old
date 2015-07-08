@@ -1,3 +1,14 @@
-<h2 id="title">Welcome to Ember.js</h2>
+{{partial 'main-menu'}}
+	<div id="global-spinner">
+		<i class="fa fa-spinner fa-spin"></i>
+	</div>
 
 {{outlet}}
+
+{{partial 'footer'}}
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+{{partial 'barcode-modal'}}
+

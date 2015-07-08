@@ -1,0 +1,39 @@
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <form>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Scanna streckkod på ordern</h4>
+      </div>
+      <div class="modal-body">
+        <fieldset>
+    		<label for="barcode-input">Streckkod</label>
+    		{{input class="form-control" id="barcode-input" value=orderNumber placeholder="Scanna streckkod (exempel: 2014052015160216)"}}
+  		</fieldset>
+
+		<br>
+		{{#if error}}
+			<div class="alert alert-danger" role="alert">
+			<i class="fa fa-exclamation-triangle"></i>
+			<span class="sr-only">Fel:</span>
+			Ingen order med detta ordernummer kunde hittas. 
+			</div>
+		{{/if}}
+      </div>
+      <div class="modal-footer">
+       
+		<fieldset>
+		 	<button type="button" class="btn btn-default" data-dismiss="modal" {{action 'resetModal'}}>Close</button>
+		  	<button {{bind-attr class=":btn :btn-success isEnabled:enabled:disabled"}} type="submit" {{action 'submitBarcodeForm'}}>Skicka</button>
+		</fieldset>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+

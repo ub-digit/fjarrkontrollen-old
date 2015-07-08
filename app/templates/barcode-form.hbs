@@ -1,0 +1,29 @@
+
+
+{{#ic-modal
+  open-when=barcodeIsVisible
+   close-when=barcodeIsHidden
+  id="barcode-form"
+}}
+<form>
+  {{#ic-modal-title}}<h4>Scanna streckkod på ordern</h4>{{/ic-modal-title}}
+  <fieldset>
+    <label for="barcode-input">Streckkod</label>
+    {{input class="form-control" id="barcode-input" value=orderNumber placeholder="Scanna streckkod (exempel: 2014052015160216)"}}
+  </fieldset>
+
+  <!-- and put your buttons in the footer -->
+  <br>
+  {{#if error}}
+    <div class="alert alert-danger" role="alert">
+    <i class="fa fa-exclamation-triangle"></i>
+    <span class="sr-only">Fel:</span>
+    Ingen order med detta ordernummer kunde hittas. 
+  </div>
+  {{/if}}
+  <fieldset>
+    <!-- when "awaiting-return-value" is true, "saving" will be also -->
+      <button {{bind-attr class=":btn :btn-success isEnabled:enabled:disabled"}} type="submit" {{action 'submitBarcodeForm'}}>Skicka</button>
+  </fieldset>
+</form>
+{{/ic-modal}}

@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'fjarrkontrollen-clean',
     environment: environment,
     baseURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -21,10 +21,14 @@ module.exports = function(environment) {
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
+    ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.serviceURL = 'http://fjarrkontrollen-server-test.ub.gu.se';
+    ENV.contentSecurityPolicyHeader = 'Disabled-Content-Security-Policy';
+    ENV.APP.authenticationBaseURL = 'http://fjarrkontrollen-server-test.ub.gu.se/session';
+
   }
 
   if (environment === 'test') {
@@ -40,7 +44,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.APP.serviceURL = 'http://fjarrkontrollen-server-test.ub.gu.se';
   }
 
   return ENV;

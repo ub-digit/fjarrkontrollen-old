@@ -11,6 +11,18 @@
     "ember-resolver": "~0.1.15",
     "jquery": "^1.11.1",
     "loader.js": "ember-cli/loader.js#3.2.0",
-    "qunit": "~1.17.1"
+    "qunit": "~1.17.1",
+    "ember-simple-auth": "0.8.0",
+    "ic-modal": "~1.0.0",
+    "bootstrap": "~3.2.0",
+    "moment": "~2.8.3",
+    "font-awesome": "~4.2.0",
+    "cldr": "~1.0.2",
+    "ember-i18n": "~2.2.2",
+    "jquery.scrollTo": "~1.4.13",
+    "rsvp": "~3.0.13"
+  },
+  "devDependencies": {
+    "font-awesome": "~4.3.0"
   }
 }
