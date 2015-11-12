@@ -2,7 +2,10 @@
   "predef": [
     "document",
     "window",
-    "-Promise"
+    "-Promise",
+    "Ember",
+    "dataLayer",
+    "moment"
   ],
   "browser": true,
   "boss": true,

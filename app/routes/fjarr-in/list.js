@@ -13,8 +13,9 @@ export default Ember.Route.extend({
 			return null;
 		}
 		else {
+			var filter = null;
 			if (this.controllerFor("fjarr-in.list")) {
-				var filter = this.controllerFor("fjarr-in.list").get("filterToServer");
+				filter = this.controllerFor("fjarr-in.list").get("filterToServer");
 			}
 			var result =  this.store.find('order', filter);	
 			return result;
@@ -29,7 +30,7 @@ export default Ember.Route.extend({
 
 	setupController: function(controller, model) {
 		controller.set("model", model);
-		var meta = controller.get("model.meta");
+		//var meta = controller.get("model.meta");
 		if (typeof controller.get("currentLocation") === 'undefined') {
 			controller.set("currentLocation", this.controllerFor('application').get("defaultLocation").toString());
 		}

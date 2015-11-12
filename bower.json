@@ -16,13 +16,13 @@
     "ic-modal": "~1.0.0",
     "bootstrap": "~3.2.0",
     "moment": "~2.8.3",
-    "font-awesome": "~4.2.0",
     "cldr": "~1.0.2",
+    "font-awesome": "~4.3.0",
     "ember-i18n": "~2.2.2",
     "jquery.scrollTo": "~1.4.13",
     "rsvp": "~3.0.13"
   },
   "devDependencies": {
-    "font-awesome": "~4.3.0"
+
   }
 }

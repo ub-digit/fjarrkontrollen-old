@@ -25,12 +25,12 @@ export default Ember.Controller.extend(Ember.Evented, {
 	stickyNoteChanged: function() {
 		// change stickyNoteForOrder and save
 		this.set("order.stickyNoteId", this.get("stickyNoteForThisOrder"));
-		var self = this;
+		//var self = this;
 		var onSuccess = function() {
 			//self.set("controllers.application.message", "Order " + self.get("model.orderNumber") + " har sparats.");
-		}
+		};
 		var onError = function() {
-		}
+		};
 		this.get("order").save().then(onSuccess, onError);
 	}.observes('stickyNoteForThisOrder'),
 
@@ -45,16 +45,6 @@ export default Ember.Controller.extend(Ember.Evented, {
 
 	}.property("order"),
 
-	getStatusName: function() {
-		var status = this.get("controllers.application").getStatusObject(this.get("order.statusId"));
-		if (status) {
-			return status.get("nameSv");
-		}
-		else {
-			return "missing location: " + this.get("order.statusId");
-		}
-	}.property("order"),
-
 
 
 	generateBibInfo: function() {
@@ -63,10 +53,6 @@ export default Ember.Controller.extend(Ember.Evented, {
 		var authorStr = "";
 		var journalTitle = "";
 		var ordernumberStr = "";
-
-
-
-
 		if (this.get("order.name")) {
 			var customerHeading = "Låntagare";
 			if (this.get("langForStandardAnswer") === "Engelska") {
@@ -207,13 +193,13 @@ export default Ember.Controller.extend(Ember.Evented, {
 
 	}.observes('selectedAnswer'),
 
-	turnOnLoading: function(id) {
-		$("body").addClass("loading");
+	turnOnLoading: function(/*id*/) {
+		Ember.$("body").addClass("loading");
 	},
 
 
-	turnOffLoading: function(id) {
-		$("body").removeClass("loading");
+	turnOffLoading: function(/*id*/) {
+		Ember.$("body").removeClass("loading");
 	},
 
 	getPrintOrderUrl: function() {
@@ -260,9 +246,9 @@ export default Ember.Controller.extend(Ember.Evented, {
 			var onSuccess = function() {
 				self.turnOffLoading(id);
 				self.send('refreshModel', id);
-			}
+			};
 			var onError = function() {
-			}
+			};
 
 			this.get("order").save().then(onSuccess, onError);
 
@@ -273,7 +259,7 @@ export default Ember.Controller.extend(Ember.Evented, {
 			//var user = this.get("controllers.application.currentUser.id");
 			var post = this.store.createRecord('note', {
 			 		orderId: orderId, userId: this.get("session.content.secure.userid"), message: this.get("message"), isEmail: email
-			})
+			});
 
 			var that = this;
 			var onSuccess = function() {
@@ -282,16 +268,16 @@ export default Ember.Controller.extend(Ember.Evented, {
 				that.set('isNewNoteVisible',false);
 				that.set('isNewMessageVisible',false);
 				that.get("notes").pushObject(post);
-			}
+			};
 			var onError = function() {
 				that.set("message", '');
 				that.set("controllers.application.message", "Din anteckning har sparats");
-			}
+			};
 			post.save().then(onSuccess, onError);
 		},
 		createNewEmailMessage: function(orderId, email) {
 			var post = this.store.createRecord('note', {
-				orderId: orderId, userId: this.get("session").get("userid"), subject: this.get("emailmessage.subject"), message: this.get("emailmessage.body"), isEmail: email});
+				orderId: orderId, userId: this.get("session.content.secure.userid"), subject: this.get("emailmessage.subject"), message: this.get("emailmessage.body"), isEmail: email});
 			var that = this;
 			var onSuccess = function() {
 				that.set("controllers.application.message", "Ditt mejl har sparats och kommer att skickas");
@@ -301,13 +287,14 @@ export default Ember.Controller.extend(Ember.Evented, {
 				that.set('isNewNoteVisible',false);
 				that.set('isNewMessageVisible',false);
 				that.get("notes").pushObject(post);
-			}
+				//that.send('refreshModel', orderId);
+			};
 			var onError = function() {
 				that.set("controllers.application.message", "Ditt mejl har sparats och kommer att skickas");
 				that.set("selectedAnswer", null);
 				that.set("emailmessage.subject", "");
 				that.set("emailmessage.body", "");
-			}
+			};
 			post.save().then(onSuccess, onError);			
 		},
 

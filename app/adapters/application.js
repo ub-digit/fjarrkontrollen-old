@@ -23,7 +23,7 @@ DS.Model.reopen({
 
 
 
-var get = Ember.get, getPath = Ember.getPath, set = Ember.set, fmt = Ember.String.fmt;
+var get = Ember.get;  //getPath = Ember.getPath,  set = Ember.set, fmt = Ember.String.fmt;
  
 Ember.Select.reopen({
   optionDisabledPath: null

@@ -30,7 +30,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 		}
 
 		/// make copy of status array and filter it to only active ones 
-		var onlyActiveStatuses = this.controller.get('statuses').filter(function(item, index, enumerable){
+		var onlyActiveStatuses = this.controller.get('statuses').filter(function(item/*, index, enumerable*/){
 			if (item.get("isActive")) {
 				return item;
 			}
@@ -39,7 +39,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 
 
 		/// make copy of status array and filter it to only active ones 
-		var onlyActiveDeliverySources = this.controller.get('delivery_sources').filter(function(item, index, enumerable){
+		var onlyActiveDeliverySources = this.controller.get('delivery_sources').filter(function(item/*, index, enumerable*/){
 			if (item.get("isActive")) {
 				return item;
 			}

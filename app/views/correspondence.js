@@ -17,18 +17,18 @@ export default Ember.View.extend({
 	}.observes('controller.selectedAnswer'),
 
 	enable: function() {
-		$("#notes-submit").removeClass("disabled");
+		Ember.$("#notes-submit").removeClass("disabled");
 	},
 	disable: function() {
-		$("#notes-submit").addClass("disabled");
+		Ember.$("#notes-submit").addClass("disabled");
 	},
 
 	enableEmailBtn: function() {
-		$("#email-submit").removeClass("disabled");
+		Ember.$("#email-submit").removeClass("disabled");
 	},
 
 	disableEmailBtn: function() {
-		$("#email-submit").addClass("disabled");
+		Ember.$("#email-submit").addClass("disabled");
 	}
 
 

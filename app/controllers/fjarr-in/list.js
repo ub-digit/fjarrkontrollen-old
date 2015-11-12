@@ -165,6 +165,7 @@ export default Ember.Controller.extend({
 			this.set("currentToBeInvoicedFilter", null);
 			this.set("currentLocationSource", null);
 			this.set("query", '');
+			this.set("currentOrderType", null);
 
 
 		},
@@ -227,7 +228,7 @@ export default Ember.Controller.extend({
 				var onError = function(error) {
 					console.log(error);
 				};
-				var onSuccess = function(item) {
+				var onSuccess = function(/*item*/) {
 					self.turnOffLoading(orderNumber);
 					self.triggerFilter();
 			//		self.set("controllers.application.message", "Ordern med nummer " + orderNumber + " har bytt Handläggare till " + userId);
