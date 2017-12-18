@@ -1,5 +1,10 @@
 # Fjarrkontrollen-clean
 
+## IMPORTANT will work.
+* node v4.8.7
+* npm v2.15.11
+
+
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
 
