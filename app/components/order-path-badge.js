@@ -13,17 +13,13 @@ export default Ember.Component.extend({
     switch (this.get('orderPath')) {
       case 'Web':
       case 'web':
-        return 'Web'
-        break;
+        return 'Web';
       case 'SFX':
-        return 'SFX'
-        break;
+        return 'SFX';
       case 'LibrisEnduser':
         return 'Libris';
-        break;
       default:
-        return 'n/a'
-        break;
+        return 'n/a';
     }
 
   })

@@ -1,14 +1,14 @@
 import Ember from 'ember';
 
 function locationName(locationId, locations) {
-	var locationName = locations.findBy('idInt', parseInt(locationId));
-	if (locationName) {
-		return locationName.get("nameSv");
+	var name = locations.findBy('idInt', parseInt(locationId));
+	if (name) {
+		return name.get("nameSv");
 	}
 	else {
 		return "missing status: " + locationId;
 	}
-}	
+}
 
 export {
   locationName
